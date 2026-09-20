@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Northstar Advisory | Business Growth Studio</title>
+    <meta name="description" content="Northstar Advisory is a professional business growth studio helping brands scale with strategy, digital transformation, and high-converting marketing systems." />
+    <link rel="stylesheet" href="mass.css" />
+    <style>
+      body { line-height: 1.6; }
+      a { color: inherit; }
+      .section { padding: 16px 0; }
+      .section-head { max-width: 680px; margin: 0 auto 28px; text-align: center; }
+      .eyebrow { display: inline-block; margin-bottom: 12px; padding: 7px 12px; border-radius: 999px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.2); color: var(--text-2); font-size: 0.76rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; }
+      .section-head h2 { margin: 0; font-size: clamp(2rem, 2.6vw, 3rem); letter-spacing: -0.05em; }
+      .section-head p { color: var(--text-2); margin-top: 10px; }
+      .services-grid, .process-grid, .testimonials-grid, .pricing-grid, .feature-grid { display: grid; gap: 22px; }
+      .services-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .process-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+      .testimonials-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .pricing-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .feature-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .service-card, .process-card, .testimonial, .price-card, .feature-card { min-height: 100%; }
+      .icon-box { width: 52px; height: 52px; display: grid; place-items: center; border-radius: 16px; margin-bottom: 18px; background: linear-gradient(135deg, rgba(174,220,255,0.25), rgba(255,255,255,0.08)); border: 1px solid rgba(255,255,255,0.18); font-size: 1.4rem; box-shadow: inset 0 1px 0 rgba(255,255,255,0.15); }
+      .service-card h3, .process-card h3, .feature-card h3, .price-card h3 { margin: 0 0 10px; font-size: 1.2rem; }
+      .service-card p, .process-card p, .feature-card p, .price-card p, .testimonial p { margin: 0; color: var(--text-2); }
+      .process-step { display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 50%; margin-bottom: 18px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.16); font-weight: 700; }
+      .quote-mark { font-size: 2.8rem; line-height: 1; color: rgba(255,255,255,0.55); margin-bottom: 10px; }
+      .testimonial-footer { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: 18px; padding-top: 16px; border-top: 1px solid rgba(255,255,255,0.12); }
+      .person { display: flex; align-items: center; gap: 12px; }
+      .avatar { width: 42px; height: 42px; border-radius: 50%; display: grid; place-items: center; font-weight: 700; background: linear-gradient(135deg, rgba(168,217,255,0.5), rgba(255,255,255,0.1)); border: 1px solid rgba(255,255,255,0.2); }
+      .person small { color: var(--text-3); }
+      .price-card { display: flex; flex-direction: column; }
+      .price-card .price { margin: 18px 0 8px; font-size: 2.2rem; font-weight: 800; letter-spacing: -0.05em; }
+      .price-card ul { list-style: none; padding: 18px 0 0; margin: 0; color: var(--text-2); }
+      .price-card li { position: relative; padding-left: 24px; margin-bottom: 10px; }
+      .price-card li::before { content: "✓"; position: absolute; left: 0; color: #9fe0d2; font-weight: 700; }
+      .featured { position: relative; border-color: rgba(165,214,255,0.8); box-shadow: 0 18px 32px rgba(91,160,255,0.18); }
+      .featured-badge { position: absolute; top: 18px; right: 18px; padding: 6px 10px; border-radius: 999px; background: rgba(159,224,210,0.2); border: 1px solid rgba(159,224,210,0.5); color: #d7faf1; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; }
+      .split-layout { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 22px; }
+      .split-copy { padding: 10px 0; }
+      .check-list { list-style: none; padding: 0; margin: 24px 0 0; display: grid; gap: 14px; }
+      .check-list li { position: relative; padding-left: 30px; color: var(--text-2); }
+      .check-list li::before { content: "•"; position: absolute; left: 0; color: #9fe0d2; font-size: 1.8rem; line-height: 1; }
+      .metrics-wrap { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px; }
+      .metric { padding: 24px 20px; text-align: center; }
+      .metric strong { display: block; font-size: clamp(1.8rem, 2vw, 2.5rem); }
+      .metric span { color: var(--text-3); }
+      .cta-box { padding: 30px; display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
+      .cta-box h3 { margin: 0; font-size: clamp(1.6rem, 2vw, 2.3rem); }
+      .cta-box p { margin: 6px 0 0; color: var(--text-2); }
+      .mini-logo { display: inline-flex; align-items: center; gap: 12px; margin-bottom: 16px; }
+      .footer-grid { display: grid; grid-template-columns: 1.3fr 0.7fr 0.7fr 0.9fr; gap: 22px; }
+      .footer-grid h4 { margin: 0 0 14px; font-size: 1rem; }
+      .footer-grid p, .footer-grid a, .footer-grid li { color: var(--text-2); }
+      .footer-links { list-style: none; padding: 0; margin: 0; display: grid; gap: 8px; }
+      @media (max-width: 980px) { .services-grid, .process-grid, .testimonials-grid, .pricing-grid, .footer-grid, .split-layout, .metrics-wrap, .feature-grid { grid-template-columns: 1fr 1fr; } }
+      @media (max-width: 760px) { .services-grid, .process-grid, .testimonials-grid, .pricing-grid, .footer-grid, .split-layout, .metrics-wrap, .feature-grid { grid-template-columns: 1fr; } .nav { width: 100%; justify-content: center; } .cta-box { align-items: flex-start; } }
+    </style>
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="glass topbar">
+        <div class="brand">
+          <span class="brand-mark"></span>
+          <span>Northstar Advisory</span>
+        </div>
+        <nav class="nav" aria-label="Main navigation">
+          <a href="#services">Services</a>
+          <a href="#about">About</a>
+          <a href="#process">Process</a>
+          <a href="#pricing">Pricing</a>
+          <a href="#contact">Contact</a>
+        </nav>
+        <a class="glass-button primary" href="#contact">Book a consult</a>
+      </header>
+      <main>
+        <section class="glass hero">
+          <div class="hero-copy">
+            <div class="eyebrow">Growth strategy • digital transformation</div>
+            <h1 class="heading">Turn momentum into measurable business growth.</h1>
+            <p class="subtitle">We help founders, operators, and executive teams sharpen their strategy, modernize their customer experience, and launch systems that scale with confidence.</p>
+            <div class="hero-actions">
+              <a class="glass-button primary" href="#contact">Schedule strategy call</a>
+              <a class="glass-button secondary" href="#services">Explore services</a>
+            </div>
+          </div>
+          <div class="hero-visual">
+            <div class="orb" aria-hidden="true"></div>
+          </div>
+        </section>
+        <section class="section">
+          <div class="glass stats">
+            <div class="glass-card stat">
+              <span class="stat-value">+184%</span>
+              <span class="stat-label">Average pipeline growth</span>
+            </div>
+            <div class="glass-card stat">
+              <span class="stat-value">3.2x</span>
+              <span class="stat-label">Return on transformation spend</span>
+            </div>
+            <div class="glass-card stat">
+              <span class="stat-value">92%</span>
+              <span class="stat-label">Client retention rate</span>
+            </div>
+          </div>
+        </section>
+        <section id="services" class="section">
+          <div class="section-head">
+            <span class="eyebrow">What we do</span>
+            <h2>Full-spectrum support for ambitious businesses.</h2>
+            <p>From strategic positioning to execution systems, we provide the clarity, design, and operational discipline needed to grow without chaos.</p>
+          </div>
+          <div class="services-grid">
+            <article class="glass glass-card service-card">
+              <div class="icon-box">📈</div>
+              <h3>Business Strategy</h3>
+              <p>Positioning, market analysis, KPI frameworks, and roadmap planning built to accelerate sustainable growth.</p>
+            </article>
+            <article class="glass glass-card service-card">
+              <div class="icon-box">⚙️</div>
+              <h3>Operational Systems</h3>
+              <p>Process design, team alignment, and automation strategies that reduce friction and improve delivery speed.</p>
+            </article>
+            <article class="glass glass-card service-card">
+              <div class="icon-box">🎯</div>
+              <h3>Marketing Performance</h3>
+              <p>Funnel strategy, campaign planning, conversion optimization, and reporting systems for qualified demand generation.</p>
+            </article>
+          </div>
+        </section>
+        <section id="about" class="section">
+          <div class="split-layout">
+            <div class="glass glass-panel split-copy">
+              <span class="eyebrow">Why Northstar</span>
+              <h2 class="heading" style="font-size: clamp(1.8rem, 2.2vw, 2.7rem); margin-bottom: 16px;">Strategic clarity for teams that are ready to scale.</h2>
+              <p class="subtitle" style="margin-bottom: 0;">We blend advisory expertise with practical implementation support, giving you a partner that can diagnose issues, design solutions, and help your team execute with confidence.</p>
+              <ul class="check-list">
+                <li>Executive-level guidance rooted in real operating experience.</li>
+                <li>Custom roadmaps tailored to your market, growth stage, and goals.</li>
+                <li>Clear reporting, measurable outcomes, and accountable next steps.</li>
+              </ul>
+            </div>
+            <div class="feature-grid">
+              <article class="glass glass-card feature-card">
+                <h3>Market Insight</h3>
+                <p>Better positioning through sharper customer understanding and competitive intelligence.</p>
+              </article>
+              <article class="glass glass-card feature-card">
+                <h3>Execution Focus</h3>
+                <p>Systems that turn strategy into clear action across sales, marketing, and operations.</p>
+              </article>
+              <article class="glass glass-card feature-card">
+                <h3>Revenue Design</h3>
+                <p>Improved conversion paths and pipeline quality with data-backed decision making.</p>
+              </article>
+              <article class="glass glass-card feature-card">
+                <h3>Leadership Support</h3>
+                <p>Sharper collaboration, communication, and decision processes for leadership teams.</p>
+              </article>
+            </div>
+          </div>
+        </section>
+        <section id="process" class="section">
+          <div class="section-head">
+            <span class="eyebrow">Our process</span>
+            <h2>A simple framework that keeps momentum high.</h2>
+          </div>
+          <div class="process-grid">
+            <article class="glass glass-card process-card">
+              <div class="process-step">01</div>
+              <h3>Discover</h3>
+              <p>We evaluate your goals, challenges, customer journey, and current performance signals.</p>
+            </article>
+            <article class="glass glass-card process-card">
+              <div class="process-step">02</div>
+              <h3>Diagnose</h3>
+              <p>We identify friction points, bottlenecks, and strategic opportunities with clear priorities.</p>
+            </article>
+            <article class="glass glass-card process-card">
+              <div class="process-step">03</div>
+              <h3>Design</h3>
+              <p>We build a practical roadmap with measurable milestones and accountable ownership.</p>
+            </article>
+            <article class="glass glass-card process-card">
+              <div class="process-step">04</div>
+              <h3>Scale</h3>
+              <p>We help your team implement, monitor, and refine the systems that drive momentum.</p>
+            </article>
+          </div>
+        </section>
+        <section class="section">
+          <div class="glass glass-panel">
+            <div class="metrics-wrap">
+              <div class="glass-card metric">
+                <strong>120+</strong>
+                <span>client engagements</span>
+              </div>
+              <div class="glass-card metric">
+                <strong>18</strong>
+                <span>industries supported</span>
+              </div>
+              <div class="glass-card metric">
+                <strong>9.4/10</strong>
+                <span>average client rating</span>
+              </div>
+              <div class="glass-card metric">
+                <strong>6 wks</strong>
+                <span>average time to launch</span>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="section">
+          <div class="section-head">
+            <span class="eyebrow">Client feedback</span>
+            <h2>Trusted by teams who value clarity and results.</h2>
+          </div>
+          <div class="testimonials-grid">
+            <article class="glass glass-card testimonial">
+              <div class="quote-mark">“</div>
+              <p>Northstar helped us restructure our growth plan and gave our leadership team a much clearer path to scale.</p>
+              <div class="testimonial-footer">
+                <div class="person">
+                  <div class="avatar">AS</div>
+                  <div>
+                    <strong>Alicia Stone</strong><br />
+                    <small>COO, Harbor &amp; Co.</small>
+                  </div>
+                </div>
+              </div>
+            </article>
+            <article class="glass glass-card testimonial">
+              <div class="quote-mark">“</div>
+              <p>Their ability to blend strategic thinking with real operational execution made a major difference for our team.</p>
+              <div class="testimonial-footer">
+                <div class="person">
+                  <div class="avatar">DM</div>
+                  <div>
+                    <strong>Daniel Moore</strong><br />
+                    <small>Founder, Apex Systems</small>
+                  </div>
+                </div>
+              </div>
+            </article>
+            <article class="glass glass-card testimonial">
+              <div class="quote-mark">“</div>
+              <p>We finally had a partner who could help us improve performance without adding unnecessary complexity.</p>
+              <div class="testimonial-footer">
+                <div class="person">
+                  <div class="avatar">JK</div>
+                  <div>
+                    <strong>Jasmine Kim</strong><br />
+                    <small>VP Marketing, Luma Group</small>
+                  </div>
+                </div>
+              </div>
+            </article>
+          </div>
+        </section>
+        <section id="pricing" class="section">
+          <div class="section-head">
+            <span class="eyebrow">Pricing</span>
+            <h2>Flexible engagement options for growing teams.</h2>
+          </div>
+          <div class="pricing-grid">
+            <article class="glass glass-card price-card">
+              <h3>Starter Advisory</h3>
+              <p>For early-stage teams that need strategic direction.</p>
+              <div class="price">$1,200<span style="font-size: 0.9rem; color: var(--text-3);">/mo</span></div>
+              <ul>
+                <li>Monthly strategy sessions</li>
+                <li>Growth planning support</li>
+                <li>Priority email guidance</li>
+              </ul>
+              <a class="glass-button secondary" href="#contact" style="margin-top: 22px;">Get started</a>
+            </article>
+            <article class="glass glass-card price-card featured">
+              <div class="featured-badge">Most Popular</div>
+              <h3>Growth Partnership</h3>
+              <p>For businesses ready to align strategy with execution.</p>
+              <div class="price">$2,900<span style="font-size: 0.9rem; color: var(--text-3);">/mo</span></div>
+              <ul>
+                <li>Everything in Starter</li>
+                <li>Weekly strategic syncs</li>
+                <li>Implementation planning</li>
+                <li>Performance reporting</li>
+              </ul>
+              <a class="glass-button primary" href="#contact" style="margin-top: 22px;">Book a consult</a>
+            </article>
+            <article class="glass glass-card price-card">
+              <h3>Executive Sprint</h3>
+              <p>For focused transformation initiatives and leadership alignment.</p>
+              <div class="price">$5,400<span style="font-size: 0.9rem; color: var(--text-3);">/engagement</span></div>
+              <ul>
+                <li>Deep-dive assessment</li>
+                <li>Prioritized roadmap</li>
+                <li>Leadership workshop</li>
+                <li>Execution tracking</li>
+              </ul>
+              <a class="glass-button secondary" href="#contact" style="margin-top: 22px;">Request proposal</a>
+            </article>
+          </div>
+        </section>
+        <section id="contact" class="section">
+          <div class="glass cta-box">
+            <div>
+              <h3>Ready to accelerate your next phase of growth?</h3>
+              <p>Tell us where you want to go, and we’ll help you map the path forward.</p>
+            </div>
+            <a class="glass-button primary" href="mailto:hello@northstaradvisory.com">hello@northstaradvisory.com</a>
+          </div>
+        </section>
+      </main>
+      <footer class="glass glass-panel" style="margin-top: 24px;">
+        <div class="footer-grid">
+          <div>
+            <div class="mini-logo">
+              <span class="brand-mark"></span>
+              <strong>Northstar Advisory</strong>
+            </div>
+            <p>Strategic advisory and growth systems for companies that want a clear, disciplined path to scale.</p>
+          </div>
+          <div>
+            <h4>Company</h4>
+            <ul class="footer-links">
+              <li><a href="#about">About</a></li>
+              <li><a href="#services">Services</a></li>
+              <li><a href="#process">Process</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4>Resources</h4>
+            <ul class="footer-links">
+              <li><a href="#pricing">Pricing</a></li>
+              <li><a href="#contact">Contact</a></li>
+              <li><a href="#">Insights</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4>Connect</h4>
+            <ul class="footer-links">
+              <li><a href="mailto:hello@northstaradvisory.com">Email</a></li>
+              <li><a href="#">LinkedIn</a></li>
+              <li><a href="#">Book a call</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-note" style="margin-top: 20px; padding-top: 18px; border-top: 1px solid rgba(255,255,255,0.14);">
+          <span>© 2026 Northstar Advisory</span>
+          <span>Built for confident business growth.</span>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>
